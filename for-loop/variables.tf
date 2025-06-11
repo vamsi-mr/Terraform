@@ -54,7 +54,7 @@ variable "sg_tags" {
 
 
 variable "instances" {
-  default = {                 #["mongodb", "redis", "mysql", "rabbitmq"]
+  default = {                 #["mongodb", "redis", "mysql", "rabbitmq"] when using for each = toset ()
     mongodb = "t2.micro"      #each keyword is assigned for every iteration, you will get each.key and each.value
     redis = "t2.micro"
     mysql = "t2.micro"
