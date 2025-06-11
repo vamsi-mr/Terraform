@@ -1,5 +1,5 @@
 resource "aws_route53_record" "www" {
-    count   = 4
+    count   = length(var.instances)
     zone_id = var.zone_id
     name    = "${var.instances[count.index]}.${var.domain_name}" #mongodb.ravada.site
     type    = "A"
