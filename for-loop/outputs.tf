@@ -1,3 +1,3 @@
 output "aws_instance_info" {
-    value = "aws_instance.roboshop"
+  value = "aws_instance.roboshop"
 }
