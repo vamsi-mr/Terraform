@@ -3,10 +3,10 @@ resource "aws_instance" "roboshop" {
   instance_type          = var.instance_type
   vpc_security_group_ids = [aws_security_group.allow_all_ansible.id]
 
-   tags = merge(
+  tags = merge(
     var.common_tags,
     {
-        Name = var.ec2_tags
+      Name = var.ec2_tags
     }
   )
 
@@ -26,10 +26,10 @@ resource "aws_instance" "roboshop" {
 
 
 resource "aws_security_group" "allow_all_ansible" {
-    name        = var.sg_name
-    description = var.sg_description
+  name        = var.sg_name
+  description = var.sg_description
 
-    ingress {
+  ingress {
     from_port        = var.from_port
     to_port          = var.to_port
     protocol         = "-1"
@@ -47,7 +47,7 @@ resource "aws_security_group" "allow_all_ansible" {
   tags = merge(
     var.common_tags,
     {
-        Name = var.sg_tags
+      Name = var.sg_tags
     }
   )
 }

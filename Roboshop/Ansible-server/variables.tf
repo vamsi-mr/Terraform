@@ -1,6 +1,6 @@
 variable "common_tags" {
   default = {
-    project = "Roboshop"
+    project   = "Roboshop"
     Terraform = true
   }
 }
@@ -34,7 +34,7 @@ variable "to_port" {
 }
 
 variable "cidr_blocks" {
-  type = list(string)
+  type    = list(string)
   default = ["0.0.0.0/0"]
 }
 
