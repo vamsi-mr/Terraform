@@ -11,27 +11,27 @@ variable "ami_id" {
 
 
 variable "environment" {
-    
+
 }
 
 
-variable "common_tags"{
-    default = {
-        Project = "roboshop"
-        Terraform = "true"
-    }
+variable "common_tags" {
+  default = {
+    Project   = "roboshop"
+    Terraform = "true"
+  }
 }
 
 variable "sg_name" {
-    default = "allow-all"
+  default = "allow-all"
 }
 
 variable "sg_description" {
-    default = "allowing all ports from all IP"
+  default = "allowing all ports from all IP"
 }
 
 variable "instances" {
-    default = ["mongodb","redis"]
+  default = ["mongodb", "redis"]
 }
 
 
@@ -64,4 +64,10 @@ variable "domain_name" {
 
 
 variable "instance_type" {
+}
+
+
+variable "s3_bucket_names" {
+  type    = list(any)
+  default = ["ravada-remote-state-dev", "ravada-remote-state-prod"]
 }

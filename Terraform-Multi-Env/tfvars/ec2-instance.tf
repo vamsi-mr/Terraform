@@ -1,13 +1,13 @@
 resource "aws_instance" "roboshop" {
-  count = length(var.instances)
+  count                  = length(var.instances)
   ami                    = var.ami_id
   instance_type          = var.instance_type
   vpc_security_group_ids = [aws_security_group.allow_all.id]
 
-  tags = merge (
+  tags = merge(
     var.common_tags,
     {
-      Name = "${var.instances[count.index]}-${var.environment}" #mongodb-dev/prod
+      Name      = "${var.instances[count.index]}-${var.environment}" #mongodb-dev/prod
       Component = "${var.instances[count.index]}"
     }
   )

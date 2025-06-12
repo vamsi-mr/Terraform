@@ -1,4 +1,4 @@
-bucket = "ravada-tf-remote-state-dev"
+bucket = "ravada-remote-state-dev"
 key = "tf-remote-state-dev"
 region = "us-east-1"
 encrypt = true
