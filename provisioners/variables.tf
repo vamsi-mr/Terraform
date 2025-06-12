@@ -12,7 +12,7 @@ variable "instance_type" {
 
 variable "instances" {
   default = ["Earth", "Mars"]
-  
+
 }
 
 variable "common_tags" {

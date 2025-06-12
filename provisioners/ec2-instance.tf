@@ -1,24 +1,24 @@
 resource "aws_instance" "roboshop" {
-  count = length(var.instances)
+  count                  = length(var.instances)
   ami                    = var.ami_id
   instance_type          = var.instance_type
   vpc_security_group_ids = [aws_security_group.allow_all.id]
 
-  tags = merge (
+  tags = merge(
     var.common_tags,
     {
       Name = "${var.instances[count.index]}"
     }
   )
 
-    provisioner "local-exec" {
-    command = "${self.private_ip} >> inventory"
+  provisioner "local-exec" {
+    command    = "${self.private_ip} >> inventory"
     on_failure = continue #ignoring errors
   }
 
   provisioner "local-exec" {
     command = "echo 'instance is destroyed'"
-    when = destroy
+    when    = destroy
   }
 
   connection {
