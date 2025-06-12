@@ -5,14 +5,6 @@ terraform {
       version = "5.98.0"
     }
   }
-
-  backend "s3"{
-    bucket = "ravada-tf-remote-state"
-    key = "provisioners"
-    region = "us-east-1"
-    encrypt = true
-    use_lockfile = true
-  }
 }
 
 provider "aws" {

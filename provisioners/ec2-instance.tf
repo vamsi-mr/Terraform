@@ -1,12 +1,18 @@
 resource "aws_instance" "roboshop" {
+  count = length(var.instances)
   ami                    = var.ami_id
   instance_type          = var.instance_type
   vpc_security_group_ids = [aws_security_group.allow_all.id]
 
-  tags = var.ec2_tags
+  tags = merge (
+    var.common_tags,
+    {
+      Name = "${var.instances[count.index]}"
+    }
+  )
 
     provisioner "local-exec" {
-    command = "${self.private_ip} > inventory"
+    command = "${self.private_ip} >> inventory"
     on_failure = continue #ignoring errors
   }
 

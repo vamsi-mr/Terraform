@@ -10,11 +10,15 @@ variable "instance_type" {
 }
 
 
-variable "ec2_tags" {
-  type = map(string)
+variable "instances" {
+  default = ["Earth", "Mars"]
+  
+}
+
+variable "common_tags" {
   default = {
-    Name    = "Hello-World"
-    Purpose = "State testing"
+    Project   = "roboshop"
+    Terraform = "true"
   }
 }
 
