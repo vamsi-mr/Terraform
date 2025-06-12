@@ -51,3 +51,6 @@ variable "sg_tags" {
     Name = "allow-all"
   }
 }
+
+variable "test" {
+}
