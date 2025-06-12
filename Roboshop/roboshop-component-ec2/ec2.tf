@@ -1,23 +1,23 @@
 resource "aws_instance" "Roboshop" {
-    count = length(var.instances)
-    ami = var.ami_id
-    instance_type = var.instance_type
-    vpc_security_group_ids = [aws_security_group.allow_all.id]
+  count                  = length(var.instances)
+  ami                    = var.ami_id
+  instance_type          = var.instance_type
+  vpc_security_group_ids = [aws_security_group.allow_all.id]
 
-    tags = merge (
-        var.common_tags,
-        {
-            Name = "${var.instances[count.index]}"
-        }
-    )
+  tags = merge(
+    var.common_tags,
+    {
+      Name = "${var.instances[count.index]}"
+    }
+  )
 }
 
 
 resource "aws_security_group" "allow_all" {
-    name        = var.sg_name
-    description = var.sg_description
+  name        = var.sg_name
+  description = var.sg_description
 
-    ingress {
+  ingress {
     from_port        = var.from_port
     to_port          = var.to_port
     protocol         = "-1"
@@ -35,7 +35,7 @@ resource "aws_security_group" "allow_all" {
   tags = merge(
     var.common_tags,
     {
-        Name = var.sg_tags
+      Name = var.sg_tags
     }
   )
 }

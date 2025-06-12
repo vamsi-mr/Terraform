@@ -1,22 +1,22 @@
 variable "common_tags" {
   default = {
-    project = "Roboshop"
+    project   = "Roboshop"
     Terraform = true
   }
 }
 
 variable "ami_id" {
-    type = string
-    default = "ami-09c813fb71547fc4f"
-    description = "AMI ID of join devops RHEL9"
+  type        = string
+  default     = "ami-09c813fb71547fc4f"
+  description = "AMI ID of join devops RHEL9"
 }
 
 variable "instance_type" {
-    default = "t2.micro"
+  default = "t2.micro"
 }
 
 variable "instances" {
-    default = ["Frontend", "MongoDB", "Catalogue", "Redis", "User", "Cart", "MySQL", "Shipping", "RabbitMQ", "Payment"]
+  default = ["Frontend", "MongoDB", "Catalogue", "Redis", "User", "Cart", "MySQL", "Shipping", "RabbitMQ", "Payment"]
 }
 
 variable "sg_name" {
@@ -36,7 +36,7 @@ variable "to_port" {
 }
 
 variable "cidr_blocks" {
-  type = list(string)
+  type    = list(string)
   default = ["0.0.0.0/0"]
 }
 
