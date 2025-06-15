@@ -9,9 +9,11 @@ resource "aws_instance" "roboshop" {
     {
       Name      = "${var.instances[count.index]}-${terraform.workspace}" #mongodb-dev/prod
       Component = "${var.instances[count.index]}"
+      Project   = var.project
     }
   )
 }
+
 
 resource "aws_security_group" "allow_all" {
   name        = "${var.sg_name}-${terraform.workspace}" # allow-all-dev/prod
