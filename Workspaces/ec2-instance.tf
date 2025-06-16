@@ -12,6 +12,11 @@ resource "aws_instance" "roboshop" {
       Project   = var.project
     }
   )
+
+  provisioner "local-exec" {
+  command = "echo ${self.private_ip} >> inventory"
+  on_failure = continue #ignoring the errors
+  }
 }
 
 
