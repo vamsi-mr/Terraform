@@ -7,5 +7,5 @@ output "private_ip" {
 }
 
 output "instance_id" {
-  value = module.ec2_test.id
+  value = module.ec2_test.instance_id
 }
