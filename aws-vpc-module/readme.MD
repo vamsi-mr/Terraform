@@ -13,4 +13,3 @@ This module is developed for creating VPC module. project Roboshop follows this 
 - database_subnet_cidrs (required) - User should specify subnet CIDR block for database subnet
 
 - cidr_block (optional) - User can provide their CIDR block. Default value is 10.0.0.0/16
-
